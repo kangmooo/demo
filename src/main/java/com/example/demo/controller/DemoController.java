@@ -25,7 +25,7 @@ public class DemoController {
     public String test(){
         List<String> nameList = demoQueryDslRepository.getNameList();
         String name = demoQueryDslRepository.getName();
-//        List<TestTable> allUserList = demoRepository.getNameList();
+        List<TestTable> allUserList = demoRepository.getNameList();
 
         return "what's up world ~!";
     }

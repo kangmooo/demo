@@ -10,8 +10,8 @@ import java.util.List;
 @Repository
 public interface DemoRepository  extends JpaRepository<TestTable, Long> {
 
-//    @Query(" select new com.example.demo.entity.TestTable(t.id, t.name) " +
-//            " from TestTable t" +
-//            " where t.id > 0L ")
-//    List<TestTable> getNameList();
+    @Query(" select t " +
+            " from TestTable t" +
+            " where t.id > 0L ")
+    List<TestTable> getNameList();
 }
