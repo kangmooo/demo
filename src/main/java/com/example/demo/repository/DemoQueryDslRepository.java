@@ -8,24 +8,20 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Slf4j
 @Repository
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
 public class DemoQueryDslRepository {
 
     private final JPAQueryFactory jpaQueryFactory;
-
     private final QTestTable qTestTable = QTestTable.testTable;
 
-    public DemoQueryDslRepository(JPAQueryFactory jpaQueryFactory) {
-        this.jpaQueryFactory = jpaQueryFactory;
-    }
-
-    public List<String> getNameList(){
-        return jpaQueryFactory.from(qTestTable).where(qTestTable.id.eq(1L)).select(qTestTable.name).fetch();
-    }
-
+    // 단일 조회
     public String getName(){
         return jpaQueryFactory.from(qTestTable).where(qTestTable.id.eq(1L)).select(qTestTable.name).fetchOne();
+    }
+
+    // list 조회
+    public List<String> getNameList(){
+        return jpaQueryFactory.from(qTestTable).where(qTestTable.id.eq(1L)).select(qTestTable.name).fetch();
     }
 }
